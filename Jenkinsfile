@@ -6,6 +6,7 @@ pipeline {
 
     environment {
         PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
+        DOCKER_CONTEXT = 'default'
         DOCKERHUB_CREDENTIALS_ID = 'docker'
         DOCKER_IMAGE = 'timppav/temperature-converter'
         DOCKER_TAG = 'latest'
