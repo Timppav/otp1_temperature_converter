@@ -6,7 +6,7 @@ pipeline {
 
     environment {
         PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
-        DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
+        DOCKERHUB_CREDENTIALS_ID = 'docker'
         DOCKER_IMAGE = 'timppav/temperature-converter'
         DOCKER_TAG = 'latest'
     }
@@ -76,8 +76,8 @@ pipeline {
 
     post {
         always {
-            junit '**/target/surefire-reports/*.xml'
-            jacoco execPattern: '**/target/jacoco.exec'
+            junit(testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true)
+            jacoco(execPattern: '**/target/jacoco.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', inclusionPattern: '**/*.class', exclusionPattern: '')
         }
     }
 }
