@@ -14,12 +14,12 @@ public class TemperatureConverter {
         return Math.round(celsius * 100) / 100.0;
     }
 
-    public boolean isExtremeTemperature(double temperature) {
-        return temperature > 50 | temperature < -40;
+    public double celsiusToKelvin(double celsius) {
+        double kelvin = celsius + 273.15;
+        return Math.round(kelvin * 100) / 100.0;
     }
 
-    public static void main(String[] args) {
-        TemperatureConverter tc = new TemperatureConverter();
-        System.out.println("273.15 K = " + tc.kelvinToCelsius(273.15) + " C");
+    public boolean isExtremeTemperature(double celsius) {
+        return celsius > 50 | celsius < -40;
     }
 }
